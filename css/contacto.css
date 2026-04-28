@@ -1,0 +1,23 @@
+/* Feedback visual de validación (Punto 25) */
+.form-control.is-valid {
+    border-color: #198754 !important;
+    background-image: none; /* Quitamos el icono default de bootstrap si prefieres */
+}
+
+.form-control.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+/* --- HERO DE CONTACTO PERSONALIZADO --- */
+.hero-contacto {
+    position: relative;
+    /* Usamos la nueva imagen cargada */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.3)), 
+                      url('../assets/images/contacto.webp');
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    border-bottom: 4px solid var(--c-accent);
+}

@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Abel Peñaloza" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turismo Jujuy - Blog de Viajes</title>
+
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+    <link rel="stylesheet" href="css/blog.css" />
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script
+      src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="js/componentes.js" defer></script>
+    <script src="js/blog.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header sticky-top">
+      <nav class="navbar-custom container" aria-label="Navegación principal">
+        <div class="logo">
+          <a href="index.html" class="d-flex align-items-center gap-2">
+            <svg class="logo-svg" width="40" height="40" viewBox="0 0 100 100">
+              <path
+                d="M20,50 L50,20 L80,50 L50,80 Z"
+                fill="var(--c-primary)"
+                stroke="var(--c-accent)"
+                stroke-width="2"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 50 50"
+                  to="360 50 50"
+                  dur="20s"
+                  repeatCount="indefinite"
+                />
+              </path>
+              <circle cx="50" cy="50" r="15" fill="var(--bg-color)" />
+            </svg>
+            <h1 class="m-0 h5 fw-bold site-logo">Turismo Jujuy</h1>
+          </a>
+        </div>
+
+        <button class="menu-toggle d-lg-none" aria-label="Abrir menú">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+
+        <ul class="nav-links" id="main-menu">
+          <li>
+            <a href="index.html" class="nav-link-custom active">Inicio</a>
+          </li>
+
+          <li class="mega-menu-item">
+            <button class="mega-menu-btn nav-link-custom">
+              Destinos <i class="bi bi-chevron-down small"></i>
+            </button>
+            <div class="mega-menu-content shadow-lg">
+              <div class="container">
+                <div class="row py-4">
+                  <div class="col-md-4">
+                    <h3 class="h6 fw-bold text-primary border-bottom pb-2">
+                      Quebrada
+                    </h3>
+                    <ul class="list-unstyled">
+                      <li><a href="destinos/purmamarca.html">Purmamarca</a></li>
+                      <li><a href="destinos/tilcara.html">Tilcara</a></li>
+                      <li><a href="destinos/humahuaca.html">Humahuaca</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <h3 class="h6 fw-bold text-primary border-bottom pb-2">
+                      Puna
+                    </h3>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="destinos/salinas.html">Salinas Grandes</a>
+                      </li>
+                      <li><a href="destinos/susques.html">Susques</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <h3 class="h6 fw-bold text-primary border-bottom pb-2">
+                      Yungas
+                    </h3>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="destinos/calilegua.html">P.N. Calilegua</a>
+                      </li>
+                      <li>
+                        <a href="destinos/termas.html">Termas de Jordán</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="agencias.html" class="nav-link-custom">Agencias</a></li>
+          <li><a href="precios.html" class="nav-link-custom">Precios</a></li>
+          <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+          <li>
+            <a
+              href="contacto.html"
+              class="btn btn-dark btn-sm px-4 rounded-pill text-white ms-lg-2"
+              >Contacto</a
+            >
+          </li>
+
+          <li>
+            <button
+              id="darkModeToggle"
+              class="dark-mode-btn"
+              aria-label="Cambiar modo"
+            >
+              <i class="bi bi-moon-stars"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="contenido-principal">
+      <section class="py-5 hero-blog text-white text-center">
+        <div class="container py-5">
+          <h1 class="display-3 fw-bold animate__animated animate__fadeIn">
+            Blog de Viajes
+          </h1>
+          <p class="lead animate__animated animate__fadeIn animate__delay-1s">
+            Historias, consejos y experiencias para descubrir Jujuy
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="py-4 bg-light shadow-sm sticky-top"
+        style="top: 80px; z-index: 100"
+      >
+        <div
+          class="container d-flex flex-wrap justify-content-center gap-2"
+          id="filtros-blog"
+        >
+          <button
+            class="btn btn-outline-primary rounded-pill active"
+            data-filter="todos"
+          >
+            Todos
+          </button>
+          <button
+            class="btn btn-outline-primary rounded-pill"
+            data-filter="aventura"
+          >
+            🏔️ Aventura
+          </button>
+          <button
+            class="btn btn-outline-primary rounded-pill"
+            data-filter="cultura"
+          >
+            🏺 Cultura
+          </button>
+          <button
+            class="btn btn-outline-primary rounded-pill"
+            data-filter="gastronomia"
+          >
+            🍷 Gastronomía
+          </button>
+          <button
+            class="btn btn-outline-primary rounded-pill"
+            data-filter="naturaleza"
+          >
+            🌿 Naturaleza
+          </button>
+          <button
+            class="btn btn-outline-primary rounded-pill"
+            data-filter="consejos"
+          >
+            💡 Consejos
+          </button>
+        </div>
+      </section>
+
+      <section class="py-5">
+        <div class="container">
+          <div class="row g-4" id="blog-grid">
+            <div class="col-lg-8 blog-item" data-category="aventura">
+              <article
+                class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden featured-card"
+              >
+                <div class="row g-0 h-100">
+                  <div class="col-md-6">
+                    <img
+                      src="assets/images/trekking7.webp"
+                      class="img-fluid h-100 object-fit-cover"
+                      alt="Trekking"
+                    />
+                  </div>
+                  <div
+                    class="col-md-6 card-body p-4 d-flex flex-column justify-content-center"
+                  >
+                    <span class="badge bg-primary mb-2 w-fit">Aventura</span>
+                    <h3 class="h2 fw-bold">
+                      El mejor trekking del Cerro de los 7 Colores
+                    </h3>
+                    <p class="text-muted">
+                      Descubrí las mejores rutas para recorrer Purmamarca, con
+                      consejos de altura y equipamiento necesario...
+                    </p>
+                    <div class="blog-meta mt-auto">
+                      <small class="text-muted"
+                        ><i class="bi bi-person"></i> Por Ana Martínez</small
+                      >
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-4 col-md-6 blog-item" data-category="cultura">
+              <article
+                class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+              >
+                <img
+                  src="assets/images/pucara.webp"
+                  class="card-img-top"
+                  alt="Pucara"
+                />
+                <div class="card-body">
+                  <span class="badge bg-warning text-dark mb-2">Cultura</span>
+                  <h3 class="h5 fw-bold">Pucará de Tilcara: historia viva</h3>
+                  <p class="text-muted small">
+                    La fortaleza de los tilcaras, un viaje al pasado
+                    prehispánico...
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div
+              class="col-lg-4 col-md-6 blog-item"
+              data-category="gastronomia"
+            >
+              <article
+                class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+              >
+                <img
+                  src="assets/images/img5.webp"
+                  class="card-img-top"
+                  alt="Gastronomía"
+                />
+                <div class="card-body">
+                  <span class="badge bg-success mb-2">Gastronomía</span>
+                  <h3 class="h5 fw-bold">
+                    Qué comer en Jujuy: platos imperdibles
+                  </h3>
+                  <p class="text-muted small">
+                    Desde la humita hasta el locro, te contamos los sabores
+                    locales...
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-4 col-md-6 blog-item" data-category="naturaleza">
+              <article
+                class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+              >
+                <img
+                  src="assets/images/Salinas-Grandes-jujuy.webp"
+                  class="card-img-top"
+                  alt="Salinas"
+                />
+                <div class="card-body">
+                  <span class="badge bg-info mb-2">Naturaleza</span>
+                  <h3 class="h5 fw-bold">
+                    Salinas Grandes: el desierto blanco
+                  </h3>
+                  <p class="text-muted small">
+                    Consejos para visitar las Salinas y el mejor horario para
+                    fotos...
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-4 col-md-6 blog-item" data-category="consejos">
+              <article
+                class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+              >
+                <img
+                  src="assets/images/concejos.webp"
+                  class="card-img-top"
+                  alt="Consejos"
+                />
+                <div class="card-body">
+                  <span class="badge bg-secondary mb-2">Consejos</span>
+                  <h3 class="h5 fw-bold">Cómo evitar el mal de altura</h3>
+                  <p class="text-muted small">
+                    Todo lo que necesitás saber para disfrutar sin riesgos...
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-6 col-md-6 blog-item" data-category="aventura">
+              <article
+                class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+              >
+                <img
+                  src="assets/images/hornocal2.webp"
+                  class="card-img-top"
+                  alt="Hornocal"
+                />
+                <div class="card-body">
+                  <span class="badge bg-primary mb-2">Aventura</span>
+                  <h3 class="h5 fw-bold">Hornocal: el cerro de 14 colores</h3>
+                  <p class="text-muted small">
+                    Cómo llegar al mirador y el mejor horario para ver los
+                    colores...
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-6 col-md-6 blog-item" data-category="cultura">
+              <article
+                class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+              >
+                <img
+                  src="assets/images/carnaval-jujuy.webp"
+                  class="card-img-top"
+                  alt="Carnaval"
+                />
+                <div class="card-body">
+                  <span class="badge bg-warning text-dark mb-2">Cultura</span>
+                  <h3 class="h5 fw-bold">Carnaval Jujeño: tradición y color</h3>
+                  <p class="text-muted small">
+                    Viví la fiesta más auténtica del norte argentino...
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5">Comentarios de viajeros</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-6 col-lg-4 animate-on-scroll">
+        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="avatar-circle avatar-1"></div>
+            <div>
+              <h4 class="h6 m-0 fw-bold">Elena M.</h4>
+              <small class="text-muted">Hace 3 días</small>
+            </div>
+          </div>
+          <p class="small text-muted mb-0">
+            "Excelente artículo sobre el Hornocal. Los colores eran impresionantes."
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 animate-on-scroll">
+        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="avatar-circle avatar-2"></div>
+            <div>
+              <h4 class="h6 m-0 fw-bold">Carlos R.</h4>
+              <small class="text-muted">Hace 1 semana</small>
+            </div>
+          </div>
+          <p class="small text-muted mb-0">
+            "La guía de comidas típicas me salvó. Probé la humita en Purmamarca siguiendo sus consejos y fue lo mejor del viaje."
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 animate-on-scroll">
+        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="avatar-circle avatar-1"></div>
+            <div>
+              <h4 class="h6 m-0 fw-bold">Lucía F.</h4>
+              <small class="text-muted">Hace 5 días</small>
+            </div>
+          </div>
+          <p class="small text-muted mb-0">
+            "Muy útiles los tips para el mal de altura. Gracias a la hidratación constante pude disfrutar de las Salinas sin problemas."
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 animate-on-scroll">
+        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="avatar-circle avatar-2"></div>
+            <div>
+              <h4 class="h6 m-0 fw-bold">Marcos T.</h4>
+              <small class="text-muted">Hace 2 días</small>
+            </div>
+          </div>
+          <p class="small text-muted mb-0">
+            "Increíble el artículo del Carnaval. Me dieron muchas ganas de ir el año que viene para vivir el desentierro del diablo."
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 animate-on-scroll">
+        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="avatar-circle avatar-1"></div>
+            <div>
+              <h4 class="h6 m-0 fw-bold">Sofía L.</h4>
+              <small class="text-muted">Ayer</small>
+            </div>
+          </div>
+          <p class="small text-muted mb-0">
+            "Hice el trekking de los 7 colores ayer. La ruta que recomendaron es exigente pero las vistas valen totalmente la pena."
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 animate-on-scroll">
+        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="avatar-circle avatar-2"></div>
+            <div>
+              <h4 class="h6 m-0 fw-bold">Jorge D.</h4>
+              <small class="text-muted">Hace 4 días</small>
+            </div>
+          </div>
+          <p class="small text-muted mb-0">
+            "Excelente reseña sobre el Pucará de Tilcara. Muy buen contexto histórico antes de realizar la visita guiada."
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 animate-on-scroll">
+        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="avatar-circle avatar-1"></div>
+            <div>
+              <h4 class="h6 m-0 fw-bold">Valeria G.</h4>
+              <small class="text-muted">Hace 6 días</small>
+            </div>
+          </div>
+          <p class="small text-muted mb-0">
+            "Las fotos de Salinas Grandes en el blog son hermosas, pero estar ahí en persona es una experiencia mística. ¡Gracias!"
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-8">
+        <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm">
+          <h3 class="h4 fw-bold mb-4">Dejá tu comentario</h3>
+          <form id="comentarioForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <input type="text" class="form-control rounded-pill" id="commName" placeholder="Tu nombre" required />
+              </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control rounded-pill" id="commEmail" placeholder="Tu email" required />
+              </div>
+              <div class="col-12">
+                <textarea class="form-control rounded-4" id="commText" rows="4" placeholder="Escribí tu comentario..." required></textarea>
+              </div>
+              <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary rounded-pill px-5">
+                  Enviar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    </main>
+    <footer class="site-footer pt-5 pb-3">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-4 col-md-6">
+            <h5 class="text-white fw-bold mb-3">Newsletter</h5>
+            <form id="footer-form" class="d-flex gap-2">
+              <input
+                type="email"
+                class="form-control rounded-pill border-0 px-3"
+                id="emailInput"
+                placeholder="Tu correo electrónico"
+                required
+              />
+              <button
+                type="submit"
+                class="btn text-white px-4 rounded-pill"
+                style="background-color: #e65130"
+              >
+                Suscribirme
+              </button>
+            </form>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-warning rounded-pill mt-3"
+              data-bs-toggle="modal"
+              data-bs-target="#modalPhishing"
+            >
+              <i class="bi bi-shield-exclamation me-2"></i>Simulación Phishing
+            </button>
+          </div>
+          <div class="col-lg-4 col-md-6 text-center">
+            <h5 class="text-white fw-bold mb-4">Seguinos</h5>
+            <div class="d-flex justify-content-center gap-3">
+              <a href="#" class="sprite-social fb" title="Facebook"></a>
+              <a href="#" class="sprite-social ig" title="Instagram"></a>
+              <a href="#" class="sprite-social tw" title="Twitter"></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <div
+              class="map-container rounded overflow-hidden shadow-sm"
+              style="height: 180px"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.6077122085967!2d-65.30298550804106!3d-24.185486898993844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f43ac3cfb9f%3A0x6de3783cdf249cc7!2sAnnuar%20Shopping!5e0!3m2!1ses-419!2sar!4v1777036131527!5m2!1ses-419!2sar"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-5 mb-4 border-light opacity-25" />
+        <div class="text-center text-white small">
+          <p>
+            © 2026 Turismo Jujuy - Diseñado por <strong>Abel Peñaloza</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <div class="modal fade" id="modalPhishing" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-dark">
+          <div class="modal-header bg-warning">
+            <h5 class="modal-title fw-bold">Desafío de Seguridad</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Hacé clic en el enlace que consideres **FRAUDULENTO**:</p>
+            <div class="list-group">
+              <button
+                class="list-group-item list-group-item-action btn-check-phish"
+                data-valid="false"
+              >
+                turismojujuy.com.ar/promo
+              </button>
+              <button
+                class="list-group-item list-group-item-action btn-check-phish"
+                data-valid="true"
+              >
+                premios-jujuy@gmail.xyz
+              </button>
+            </div>
+            <div id="phish-result" class="mt-3 p-2 rounded small d-none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

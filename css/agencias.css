@@ -1,0 +1,62 @@
+/* --- HERO --- */
+.agencias-hero {
+    min-height: 400px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), 
+                url('../assets/images/trekking7.webp') no-repeat center/cover !important;
+    color: #ffffff !important;
+}
+
+.agencias-hero h1 { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+/* --- IMAGENES --- */
+.object-fit-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* --- FLIP CARD 3D --- */
+.agencia-flip-card {
+    background-color: transparent;
+    height: 420px;
+    perspective: 1000px;
+}
+
+.agencia-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.agencia-flip-card:hover .agencia-flip-inner, 
+.agencia-flip-card.is-flipped .agencia-flip-inner {
+    transform: rotateY(180deg);
+}
+
+.agencia-front, .agencia-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.agencia-back {
+    transform: rotateY(180deg);
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+    padding: 2rem;
+}
+
+/* --- RATING --- */
+.stars-rating { flex-direction: row-reverse; }
+.rating-star { font-size: 1.5rem; color: #dee2e6; cursor: pointer; transition: 0.2s; }
+.rating-star:hover, .rating-star:hover ~ .rating-star, .rating-star.selected {
+    color: #ffc107 !important;
+}

@@ -1,0 +1,16 @@
+/* Efecto de Zoom con CSS (Punto 19) */
+.zoom-effect {
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.zoom-effect:hover {
+    transform: scale(1.03); /* Zoom suave */
+    z-index: 10;
+}
+
+/* Ajustes para modo oscuro en tablas */
+body.dark-mode .table {
+    color: #edefe9;
+    border-color: #333;
+}

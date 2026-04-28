@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Abel Peñaloza" />
+    <meta
+      name="description"
+      content="Proyecto Turismo Jujuy con Bootstrap y jQuery"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
+    />
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script
+      src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="js/componentes.js" defer></script>
+    <script src="js/precios.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Turismo Jujuy - Precios</title>
+  </head>
+  <body>
+    <header class="site-header sticky-top">
+      <nav class="navbar-custom container" aria-label="Navegación principal">
+        <div class="logo">
+          <a href="index.html" class="d-flex align-items-center gap-2">
+            <svg class="logo-svg" width="40" height="40" viewBox="0 0 100 100">
+              <path
+                d="M20,50 L50,20 L80,50 L50,80 Z"
+                fill="var(--c-primary)"
+                stroke="var(--c-accent)"
+                stroke-width="2"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 50 50"
+                  to="360 50 50"
+                  dur="20s"
+                  repeatCount="indefinite"
+                />
+              </path>
+              <circle cx="50" cy="50" r="15" fill="var(--bg-color)" />
+            </svg>
+            <h1 class="m-0 h5 fw-bold site-logo">Turismo Jujuy</h1>
+          </a>
+        </div>
+
+        <button class="menu-toggle d-lg-none" aria-label="Abrir menú">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+
+        <ul class="nav-links" id="main-menu">
+          <li>
+            <a href="index.html" class="nav-link-custom active">Inicio</a>
+          </li>
+
+          <li class="mega-menu-item">
+            <button class="mega-menu-btn nav-link-custom">
+              Destinos <i class="bi bi-chevron-down small"></i>
+            </button>
+            <div class="mega-menu-content shadow-lg">
+              <div class="container">
+                <div class="row py-4">
+                  <div class="col-md-4">
+                    <h3 class="h6 fw-bold text-primary border-bottom pb-2">
+                      Quebrada
+                    </h3>
+                    <ul class="list-unstyled">
+                      <li><a href="destinos/purmamarca.html">Purmamarca</a></li>
+                      <li><a href="destinos/tilcara.html">Tilcara</a></li>
+                      <li><a href="destinos/humahuaca.html">Humahuaca</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <h3 class="h6 fw-bold text-primary border-bottom pb-2">
+                      Puna
+                    </h3>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="destinos/salinas.html">Salinas Grandes</a>
+                      </li>
+                      <li><a href="destinos/susques.html">Susques</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <h3 class="h6 fw-bold text-primary border-bottom pb-2">
+                      Yungas
+                    </h3>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="destinos/calilegua.html">P.N. Calilegua</a>
+                      </li>
+                      <li>
+                        <a href="destinos/termas.html">Termas de Jordán</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="agencias.html" class="nav-link-custom">Agencias</a></li>
+          <li><a href="precios.html" class="nav-link-custom">Precios</a></li>
+          <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+          <li>
+            <a
+              href="contacto.html"
+              class="btn btn-dark btn-sm px-4 rounded-pill text-white ms-lg-2"
+              >Contacto</a
+            >
+          </li>
+
+          <li>
+            <button
+              id="darkModeToggle"
+              class="dark-mode-btn"
+              aria-label="Cambiar modo"
+            >
+              <i class="bi bi-moon-stars"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="contenido-principal">
+      <section class="py-5 hero-precios text-white text-center">
+        <div class="container">
+          <h1 class="display-3 fw-bold">Precios y Paquetes</h1>
+          <p class="lead">
+            Compará nuestras opciones y planificá tu aventura ideal en Jujuy.
+          </p>
+        </div>
+      </section>
+
+      <section class="py-5 bg-light">
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 class="fw-bold">Comparador de Destinos</h2>
+            <p class="text-muted">Deslizá para ver más detalles en móviles.</p>
+          </div>
+
+          <div class="table-responsive shadow-sm rounded-4 bg-custom-card p-3">
+            <table class="table table-hover align-middle mb-0 custom-table">
+              <thead class="table-dark">
+                <tr>
+                  <th >Destino</th>
+                  <th>Duración</th>
+                  <th>Servicios</th>
+                  <th>Base</th>
+                  <th>Full</th>
+                  <th class="text-center">Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Purmamarca</strong>
+                    <i
+                      class="bi bi-info-circle text-primary ms-2"
+                      data-bs-toggle="tooltip"
+                      title="Incluye visita al Paseo de los Colorados y tiempo libre en la feria artesanal."
+                    ></i>
+                  </td>
+                  <td>2 Días / 1 Noche</td>
+                  <td>Transporte + Guía</td>
+                  <td class="fw-bold text-primary">$45.000</td>
+                  <td class="fw-bold text-orange">$75.000</td>
+                  <td class="text-center">
+                    <button class="btn btn-sm btn-primary rounded-pill px-3">
+                      Reservar
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>Salinas Grandes</strong>
+                    <i
+                      class="bi bi-info-circle text-primary ms-2"
+                      data-bs-toggle="tooltip"
+                      title="Efecto espejo disponible de enero a marzo. Incluye paso por Cuesta del Lipán."
+                    ></i>
+                  </td>
+                  <td>1 Día</td>
+                  <td>4x4 + Almuerzo</td>
+                  <td class="fw-bold text-primary">$40.000</td>
+                  <td class="fw-bold text-orange">$65.000</td>
+                  <td class="text-center">
+                    <button class="btn btn-sm btn-primary rounded-pill px-3">
+                      Reservar
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>Hornocal</strong>
+                    <i
+                      class="bi bi-info-circle text-primary ms-2"
+                      data-bs-toggle="tooltip"
+                      title="Altura máx: 4.350 msnm. Salidas por la tarde para mejor luz sobre los 14 colores."
+                    ></i>
+                  </td>
+                  <td>1 Día</td>
+                  <td>Traslado + Picnic</td>
+                  <td class="fw-bold text-primary">$35.000</td>
+                  <td class="fw-bold text-orange">$60.000</td>
+                  <td class="text-center">
+                    <button class="btn btn-sm btn-primary rounded-pill px-3">
+                      Reservar
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>Tilcara</strong>
+                    <i
+                      class="bi bi-info-circle text-primary ms-2"
+                      data-bs-toggle="tooltip"
+                      title="Visita al Pucará, Jardín Botánico de Altura y museos arqueológicos."
+                    ></i>
+                  </td>
+                  <td>2 Días / 1 Noche</td>
+                  <td>Entradas + Hotel</td>
+                  <td class="fw-bold text-primary">$52.000</td>
+                  <td class="fw-bold text-orange">$82.000</td>
+                  <td class="text-center">
+                    <button class="btn btn-sm btn-primary rounded-pill px-3">
+                      Reservar
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>P.N. Calilegua</strong>
+                    <i
+                      class="bi bi-info-circle text-primary ms-2"
+                      data-bs-toggle="tooltip"
+                      title="Trekking por senderos de la selva nublada y observación de aves."
+                    ></i>
+                  </td>
+                  <td>1 Día</td>
+                  <td>Trekking + Vianda</td>
+                  <td class="fw-bold text-primary">$38.000</td>
+                  <td class="fw-bold text-orange">$55.000</td>
+                  <td class="text-center">
+                    <button class="btn btn-sm btn-primary rounded-pill px-3">
+                      Reservar
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>Termas de Jordán</strong>
+                    <i
+                      class="bi bi-info-circle text-primary ms-2"
+                      data-bs-toggle="tooltip"
+                      title="Pozones naturales de agua turquesa a 30°C. Requiere buen estado físico."
+                    ></i>
+                  </td>
+                  <td>1 Día</td>
+                  <td>Guía Local + Mulas</td>
+                  <td class="fw-bold text-primary">$42.000</td>
+                  <td class="fw-bold text-orange">$68.000</td>
+                  <td class="text-center">
+                    <button class="btn btn-sm btn-primary rounded-pill px-3">
+                      Reservar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div
+            class="mt-4 p-3 bg-white rounded-3 border-start border-4 border-warning shadow-sm"
+          >
+            <p class="mb-0 small text-muted">
+              <i class="bi bi-info-square-fill text-warning me-2"></i>
+              <strong>Base:</strong> Servicios básicos. |
+              <strong>Full:</strong> Incluye comidas típicas y entradas a
+              museos.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer pt-5 pb-3">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-4 col-md-6">
+            <h5 class="text-white fw-bold mb-3">Newsletter</h5>
+            <form id="footer-form" class="d-flex gap-2">
+              <input
+                type="email"
+                class="form-control rounded-pill border-0 px-3"
+                id="emailInput"
+                placeholder="Tu correo electrónico"
+                required
+              />
+              <button
+                type="submit"
+                class="btn text-white px-4 rounded-pill"
+                style="background-color: #e65130"
+              >
+                Suscribirme
+              </button>
+            </form>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-warning rounded-pill mt-3"
+              data-bs-toggle="modal"
+              data-bs-target="#modalPhishing"
+            >
+              <i class="bi bi-shield-exclamation me-2"></i>Simulación Phishing
+            </button>
+          </div>
+          <div class="col-lg-4 col-md-6 text-center">
+            <h5 class="text-white fw-bold mb-4">Seguinos</h5>
+            <div class="d-flex justify-content-center gap-3">
+              <a href="#" class="sprite-social fb" title="Facebook"></a>
+              <a href="#" class="sprite-social ig" title="Instagram"></a>
+              <a href="#" class="sprite-social tw" title="Twitter"></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <div
+              class="map-container rounded overflow-hidden shadow-sm"
+              style="height: 180px"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.6077122085967!2d-65.30298550804106!3d-24.185486898993844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f43ac3cfb9f%3A0x6de3783cdf249cc7!2sAnnuar%20Shopping!5e0!3m2!1ses-419!2sar!4v1777036131527!5m2!1ses-419!2sar"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-5 mb-4 border-light opacity-25" />
+        <div class="text-center text-white small">
+          <p>
+            © 2026 Turismo Jujuy - Diseñado por <strong>Abel Peñaloza</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <div class="modal fade" id="modalPhishing" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-dark">
+          <div class="modal-header bg-warning">
+            <h5 class="modal-title fw-bold">Desafío de Seguridad</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Hacé clic en el enlace que consideres **FRAUDULENTO**:</p>
+            <div class="list-group">
+              <button
+                class="list-group-item list-group-item-action btn-check-phish"
+                data-valid="false"
+              >
+                turismojujuy.com.ar/promo
+              </button>
+              <button
+                class="list-group-item list-group-item-action btn-check-phish"
+                data-valid="true"
+              >
+                premios-jujuy@gmail.xyz
+              </button>
+            </div>
+            <div id="phish-result" class="mt-3 p-2 rounded small d-none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

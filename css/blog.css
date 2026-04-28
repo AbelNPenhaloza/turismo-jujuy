@@ -1,0 +1,46 @@
+/* Layout Revista  */
+.hero-blog {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/images/precios-paisajes.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.blog-item article {
+    transition: transform 0.3s ease;
+}
+
+.blog-item article:hover {
+    transform: translateY(-8px);
+}
+
+.w-fit { width: fit-content; }
+
+/* Avatares CSS Originales */
+.avatar-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.avatar-1 { background: linear-gradient(135deg, #667eea, #764ba2); }
+.avatar-1::after { content: "👩"; }
+
+.avatar-2 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+.avatar-2::after { content: "👨"; }
+
+/* Animación inicial */
+.animate-on-scroll {
+    opacity: 0;
+}
+
+/* Modo Oscuro para Blog */
+body.dark-mode .blog-item .card,
+body.dark-mode #comentarioForm .bg-white {
+    background-color: #1e1e1e !important;
+    color: white;
+}

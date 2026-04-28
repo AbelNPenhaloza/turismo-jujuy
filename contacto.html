@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Abel Peñaloza" />
+    <meta
+      name="description"
+      content="Proyecto Turismo Jujuy con Bootstrap y jQuery"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/contacto.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
+    />
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script
+      src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="js/componentes.js" defer></script>
+    <script src="js/contacto.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Turismo Jujuy - Inicio</title>
+  </head>
+  <body>
+    <header class="site-header sticky-top">
+      <nav class="navbar-custom container" aria-label="Navegación principal">
+        <div class="logo">
+          <a href="index.html" class="d-flex align-items-center gap-2">
+            <svg class="logo-svg" width="40" height="40" viewBox="0 0 100 100">
+              <path
+                d="M20,50 L50,20 L80,50 L50,80 Z"
+                fill="var(--c-primary)"
+                stroke="var(--c-accent)"
+                stroke-width="2"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 50 50"
+                  to="360 50 50"
+                  dur="20s"
+                  repeatCount="indefinite"
+                />
+              </path>
+              <circle cx="50" cy="50" r="15" fill="var(--bg-color)" />
+            </svg>
+            <h1 class="m-0 h5 fw-bold site-logo">Turismo Jujuy</h1>
+          </a>
+        </div>
+
+        <button class="menu-toggle d-lg-none" aria-label="Abrir menú">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+
+        <ul class="nav-links" id="main-menu">
+          <li>
+            <a href="index.html" class="nav-link-custom active">Inicio</a>
+          </li>
+
+          <li class="mega-menu-item">
+            <button class="mega-menu-btn nav-link-custom">
+              Destinos <i class="bi bi-chevron-down small"></i>
+            </button>
+            <div class="mega-menu-content shadow-lg">
+              <div class="container">
+                <div class="row py-4">
+                  <div class="col-md-4">
+                    <h3 class="h6 fw-bold text-primary border-bottom pb-2">
+                      Quebrada
+                    </h3>
+                    <ul class="list-unstyled">
+                      <li><a href="destinos/purmamarca.html">Purmamarca</a></li>
+                      <li><a href="destinos/tilcara.html">Tilcara</a></li>
+                      <li><a href="destinos/humahuaca.html">Humahuaca</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <h3 class="h6 fw-bold text-primary border-bottom pb-2">
+                      Puna
+                    </h3>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="destinos/salinas.html">Salinas Grandes</a>
+                      </li>
+                      <li><a href="destinos/susques.html">Susques</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <h3 class="h6 fw-bold text-primary border-bottom pb-2">
+                      Yungas
+                    </h3>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="destinos/calilegua.html">P.N. Calilegua</a>
+                      </li>
+                      <li>
+                        <a href="destinos/termas.html">Termas de Jordán</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="agencias.html" class="nav-link-custom">Agencias</a></li>
+          <li><a href="precios.html" class="nav-link-custom">Precios</a></li>
+          <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+          <li>
+            <a
+              href="contacto.html"
+              class="btn btn-dark btn-sm px-4 rounded-pill text-white ms-lg-2"
+              >Contacto</a
+            >
+          </li>
+
+          <li>
+            <button
+              id="darkModeToggle"
+              class="dark-mode-btn"
+              aria-label="Cambiar modo"
+            >
+              <i class="bi bi-moon-stars"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="contenido-principal">
+      <section class="py-5 hero-contacto text-white text-center">
+        <div class="container">
+          <h1 class="display-3 fw-bold animate__animated animate__fadeIn">
+            Contactanos
+          </h1>
+          <p class="lead">
+            Planificá tu aventura en Jujuy con expertos locales.
+          </p>
+        </div>
+      </section>
+
+      <section class="py-5 bg-light">
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-lg-5">
+              <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+                <h2 class="h4 fw-bold mb-4">Información de Contacto</h2>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-3">
+                    <i class="bi bi-geo-alt text-primary me-2"></i> Calle
+                    Belgrano 563, San Salvador de Jujuy
+                  </li>
+                  <li class="mb-3">
+                    <i class="bi bi-telephone text-primary me-2"></i> +54 388
+                    456-7890
+                  </li>
+                  <li class="mb-0">
+                    <i class="bi bi-envelope text-primary me-2"></i>
+                    consultas@turismojujuy.com.ar
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="card border-0 shadow-sm rounded-4 p-4 bg-warning text-dark"
+              >
+                <h3 class="h5 fw-bold mb-3">
+                  <i class="bi bi-exclamation-triangle-fill me-2"></i>Números
+                  Útiles
+                </h3>
+                <ul class="list-unstyled mb-0 small">
+                  <li class="mb-2">
+                    <strong>Emergencias Médicas (SAME):</strong> 107
+                  </li>
+                  <li class="mb-2">
+                    <strong>Policía de la Provincia:</strong> 911
+                  </li>
+                  <li class="mb-2"><strong>Defensa Civil:</strong> 103</li>
+                  <li class="mb-0">
+                    <strong>Información Turística:</strong> +54 388 422-1326
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <form
+                id="contactForm"
+                class="bg-white p-4 p-md-5 rounded-4 shadow-sm needs-validation"
+                novalidate
+              >
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="name" class="form-label fw-bold"
+                      >Nombre Completo</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control rounded-pill px-3"
+                      id="name"
+                      required
+                      pattern="[A-Za-záéíóúñÑ ]{3,}"
+                      placeholder="Tu nombre"
+                    />
+                    <div class="invalid-feedback small">
+                      Mínimo 3 letras, sin números.
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="email" class="form-label fw-bold">Email</label>
+                    <input
+                      type="email"
+                      class="form-control rounded-pill px-3"
+                      id="email"
+                      required
+                      placeholder="nombre@ejemplo.com"
+                    />
+                    <div class="invalid-feedback small">
+                      Ingresá un correo válido.
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="interest" class="form-label fw-bold"
+                      >Región de interés</label
+                    >
+                    <select id="interest" class="form-select rounded-pill px-3">
+                      <option value="quebrada">Quebrada de Humahuaca</option>
+                      <option value="puna">La Puna y Salinas</option>
+                      <option value="yungas">Selva de las Yungas</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label for="message" class="form-label fw-bold"
+                      >Mensaje</label
+                    >
+                    <textarea
+                      class="form-control rounded-4"
+                      id="message"
+                      rows="4"
+                      required
+                      minlength="10"
+                      placeholder="¿En qué podemos ayudarte?"
+                    ></textarea>
+                    <div class="invalid-feedback small">
+                      Contanos un poco más (mínimo 10 caracteres).
+                    </div>
+                  </div>
+                  <div class="col-12 text-end">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-lg rounded-pill px-5 fw-bold"
+                      id="btnSubmit"
+                    >
+                      <span
+                        class="spinner-border spinner-border-sm d-none"
+                        id="btnSpinner"
+                        role="status"
+                      ></span>
+                      <span id="btnText">Enviar Consulta</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer pt-5 pb-3">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-4 col-md-6">
+            <h5 class="text-white fw-bold mb-3">Newsletter</h5>
+            <form id="footer-form" class="d-flex gap-2">
+              <input
+                type="email"
+                class="form-control rounded-pill border-0 px-3"
+                id="emailInput"
+                placeholder="Tu correo electrónico"
+                required
+              />
+              <button
+                type="submit"
+                class="btn text-white px-4 rounded-pill"
+                style="background-color: #e65130"
+              >
+                Suscribirme
+              </button>
+            </form>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-warning rounded-pill mt-3"
+              data-bs-toggle="modal"
+              data-bs-target="#modalPhishing"
+            >
+              <i class="bi bi-shield-exclamation me-2"></i>Simulación Phishing
+            </button>
+          </div>
+          <div class="col-lg-4 col-md-6 text-center">
+            <h5 class="text-white fw-bold mb-4">Seguinos</h5>
+            <div class="d-flex justify-content-center gap-3">
+              <a href="#" class="sprite-social fb" title="Facebook"></a>
+              <a href="#" class="sprite-social ig" title="Instagram"></a>
+              <a href="#" class="sprite-social tw" title="Twitter"></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <div
+              class="map-container rounded overflow-hidden shadow-sm"
+              style="height: 180px"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.6077122085967!2d-65.30298550804106!3d-24.185486898993844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f43ac3cfb9f%3A0x6de3783cdf249cc7!2sAnnuar%20Shopping!5e0!3m2!1ses-419!2sar!4v1777036131527!5m2!1ses-419!2sar"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-5 mb-4 border-light opacity-25" />
+        <div class="text-center text-white small">
+          <p>
+            © 2026 Turismo Jujuy - Diseñado por <strong>Abel Peñaloza</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <div class="modal fade" id="modalPhishing" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-dark">
+          <div class="modal-header bg-warning">
+            <h5 class="modal-title fw-bold">Desafío de Seguridad</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Hacé clic en el enlace que consideres **FRAUDULENTO**:</p>
+            <div class="list-group">
+              <button
+                class="list-group-item list-group-item-action btn-check-phish"
+                data-valid="false"
+              >
+                turismojujuy.com.ar/promo
+              </button>
+              <button
+                class="list-group-item list-group-item-action btn-check-phish"
+                data-valid="true"
+              >
+                premios-jujuy@gmail.xyz
+              </button>
+            </div>
+            <div id="phish-result" class="mt-3 p-2 rounded small d-none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
