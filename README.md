@@ -8,8 +8,8 @@ Alumno: Abel Nestor Peñaloza
 
 ### 🔗 Enlaces del Proyecto
 
-* **🌐 Sitio Web en Vivo:** [visitajujuy.netlify.app](https://visitajujuy.netlify.app/)
-* **💻 Repositorio en GitHub:** [github.com/tu-usuario/turismo-jujuy](https://github.com/tu-usuario/turismo-jujuy)
+* **🌐 Sitio Web en Vivo:** [visitajujuy.netlify.app](https://turismo-jujuy.netlify.app/)
+* **💻 Repositorio en GitHub:** [github.com/tu-usuario/turismo-jujuy](https://github.com/AbelNPenhaloza/turismo-jujuy)
 * **🎥 Video de Presentación:** [Ver en YouTube](https://youtu.be/JM9LtdHVY0A)
 
 ---
